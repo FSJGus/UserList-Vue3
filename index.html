@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Mi primer proyecto VUE</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <script>
+        var id = 1;
+
+    </script>
+    <div class="container my-5">
+        <div id="app">
+            <h1 class="text-center">Tabla de usuarios</h1>
+            <table class="table table-striped shadow p-3 mb-5 bg-body">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">ID #</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Run</th>
+                        <th>Fecha</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="es of estudiantes">
+                        <td scope="row">{{es["id"]}}</td>
+                        <td>{{es["nombre"]}}</td>
+                        <td>{{es["apellido"]}}</td>
+                        <td>{{es["run"]}}</td>
+                        <td>{{es["fecha"]}}</td>
+                        <td>{{es["edad"]}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {   //MODELO
+                estudiantes: [],
+            },
+            created() {
+                fetch('assets/datos.json')
+                    .then(response => response.json())
+                    .then(json => {
+                        setTimeout(() => {
+                            for (dato of json) {
+                                console.log(dato);
+                                this.estudiantes.push(dato);
+                            }
+                        }, 2000);
+                        console.log(estudiantes);
+                    })
+
+            }
+        });
+
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

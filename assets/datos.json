@@ -1,0 +1,26 @@
+[
+{
+    "id": "001",
+    "nombre": "John",
+    "apellido": "Doe",
+    "run": "25505050-1",
+    "fecha": "25/12/68",
+    "edad": "53"
+},
+{
+    "id": "002",
+    "nombre": "Oscar",
+    "apellido": "Urdaneta",
+    "run": "26556854-1",
+    "fecha": "21/01/85",
+    "edad": "36"
+},
+{
+    "id": "003",
+    "nombre": "Pedro",
+    "apellido": "Gonzalez",
+    "run": "25664665-K",
+    "fecha": "22/10/95",
+    "edad": "35"
+}
+]
